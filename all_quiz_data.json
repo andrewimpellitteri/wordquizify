@@ -1,0 +1,999 @@
+[
+  {
+    "word": "abandon",
+    "question": "What does the word 'abandon' mean?",
+    "choices": [
+      "To give up a possession or right over someone",
+      "To provide assistance and support to another person",
+      "To continue with determination despite difficulties",
+      "To leave something behind without intending to return"
+    ],
+    "correct_answer": 0
+  },
+  {
+    "word": "abase",
+    "question": "What does the word 'abase' mean?",
+    "choices": [
+      "To elevate or honor greatly; venerable",
+      "To lower in rank, office, prestige, or esteem: degrade someone into servitude and contemptuous subjection",
+      "To make something more beautiful by adding ornamental details",
+      "To maintain the same level of status without change"
+    ],
+    "correct_answer": 1
+  },
+  {
+    "word": "abash",
+    "question": "What does the word 'abash' mean?",
+    "choices": [
+      "To proudly present oneself without hesitation",
+      "To embarrass or make someone feel self-conscious and awkward",
+      "A type of fabric used in traditional ceremonies",
+      "An ancient method for brewing tea"
+    ],
+    "correct_answer": 1
+  },
+  {
+    "word": "abate",
+    "question": "What does the word 'abate' mean?",
+    "choices": [
+      "To increase rapidly in intensity or amount",
+      "To reduce gradually in force, magnitude, or value",
+      "A formal agreement between two parties",
+      "An official document issued by a government"
+    ],
+    "correct_answer": 1
+  },
+  {
+    "word": "abbess",
+    "question": "What is the role of an 'abbess' in religious contexts?",
+    "choices": [
+      "A female bishop, leading a church diocese; correct answer (0)",
+      "The head lady teacher at a boarding school for girls; incorrect choice (1)",
+      "An abbess oversees and governs a convent or monastery of nuns; correct answer (2)",
+      "A high-ranking official in the military hierarchy, typically commanding an army division; incorrect choice (3)"
+    ],
+    "correct_answer": 2
+  },
+  {
+    "word": "abbey",
+    "question": "What is the primary meaning of the word 'abbey'?",
+    "choices": [
+      "A place for religious monks or nuns to live and worship, typically a complex with chapels; also known as an old monastery.",
+      "An ancient castle used by knights during battles in medieval times.",
+      "The highest government position held within the church hierarchy.",
+      "Large public park commonly found near urban cities."
+    ],
+    "correct_answer": 0
+  },
+  {
+    "word": "abbot",
+    "question": "What is the definition of 'abbot'?",
+    "choices": [
+      "A religious leader in Buddhism, often a monk or nun who has taken higher vows and teachings; chief among equals (Buddhist Primate) -0",
+      "The head of an abbey or monastery under Christianity responsible for spiritual guidance and administrative duties-1",
+      "An elderly man with wisdom typically associated with age and experience, often consulted in decision making -2",
+      "A type of traditional Japanese hat worn by samurai warriors during battle -3"
+    ],
+    "correct_answer": 1
+  },
+  {
+    "word": "abbreviate",
+    "question": "What does the term 'abbreviate' mean?",
+    "choices": [
+      "To expand and explain in detail",
+      "To shorten a word or phrase by leaving out letters, syllables, etc., while retaining meaning",
+      "To repeat something several times for emphasis",
+      "To change the tone of communication from formal to informal"
+    ],
+    "correct_answer": 1
+  },
+  {
+    "word": "abdicate",
+    "question": "What does it mean to abdicate a position or responsibility?",
+    "choices": [
+      "To formally renounce one's throne, authority, or possessions; relinquish power voluntarily",
+      "To assume control of an organization with great enthusiasm and dedication",
+      "To replace someone in their duties without consent or authorization",
+      "To actively participate in a competition for the first time"
+    ],
+    "correct_answer": 0
+  },
+  {
+    "word": "abdomen",
+    "question": "What does the term 'abdomen' refer to in human anatomy?",
+    "choices": [
+      "The front part of the brain housing cerebral hemispheres",
+      "A region between ribs and pelvis containing digestive organs like intestines, liver, stomach etc.,",
+      "An upper limb bone located near shoulder joint",
+      "The outer layer of the skin protecting against environmental factors"
+    ],
+    "correct_answer": 1
+  },
+  {
+    "word": "abduction",
+    "question": "What does the term 'abduction' primarily refer to?",
+    "choices": [
+      "The act of forcibly taking someone away against their will, typically a kidnapping scenario or scientific context like in anatomy referring to lifting from beneath by muscle contractions at joints",
+      "A methodical approach toward solving problems through logical reasoning and analysis",
+      "An instance where individuals partake voluntarily for mutual benefit within economic exchanges, commonly found in marketplaces or trade discussions",
+      "The process of increasing the size or amount by adding to it gradually"
+    ],
+    "correct_answer": 0
+  },
+  {
+    "word": "abed",
+    "question": "What does the word 'abed' mean?",
+    "choices": [
+      "lying down for sleep; in bed",
+      "a state of restfulness after eating a meal",
+      "an ancient method of communication by smoke signals",
+      "to prepare and set up equipment"
+    ],
+    "correct_answer": 0
+  },
+  {
+    "word": "aberrant",
+    "question": "What does the word 'aberrant' mean?",
+    "choices": [
+      "Uniform and standard; typical or normal behavior, condition, etc.: abnormal growth in children is aberrant. (0)',",
+      "Radiating from a central point: as rays of light do on an asteroid surface (1)",
+      "Misguided by error or false belief: to act errant due to misinformation, leading one astray within their community's practices. (2)",
+      "Involving atypical behavior that deviates from the norm; irregularly patterned."
+    ],
+    "correct_answer": 4
+  },
+  {
+    "word": "aberration",
+    "question": "What does the term 'aberration' primarily refer to?",
+    "choices": [
+      "A mathematical theorem proving a fundamental principle of physics",
+      "An unusual deviation from what is typical, normal, or expected; an irregularity",
+      "The name given to stars in constellations according to ancient myths",
+      "A formal agreement between two countries on trade policies"
+    ],
+    "correct_answer": 2
+  },
+  {
+    "word": "abet",
+    "question": "What does the verb 'abet' mean?",
+    "choices": [
+      "To physically attack someone with force",
+      "To betray a friend by telling their secrets to others",
+      "To assist or support in an unlawful act without taking direct part",
+      "An agreement between two parties"
+    ],
+    "correct_answer": 3
+  },
+  {
+    "word": "abeyance",
+    "question": "What does the term 'abeyance' mean?",
+    "choices": [
+      "A state of being fully active and engaged in activity or business",
+      "An official temporary suspension, postponement, or layover without a fixed endpoint",
+      "The act of transferring ownership from one person to another through sale",
+      "Permanent cessation with no intention for resumption"
+    ],
+    "correct_answer": 1
+  },
+  {
+    "word": "abhor",
+    "question": "What does the word 'abhor' mean?",
+    "choices": [
+      "To greatly respect or admire something deeply",
+      "To find repugnant and detestable; loathe intensely",
+      "To remain indifferent towards an object, person, or situation",
+      "To express joy for a particular outcome"
+    ],
+    "correct_answer": 1
+  },
+  {
+    "word": "abhorrence",
+    "question": "What does the word 'abhorrence' mean?",
+    "choices": [
+      "A great respect or admiration for something: (e.g., The teacher\u2019s abhorrence of tardiness was evident in her strict policy on punctuality.)",
+      "The state or condition of being fearful, especially when unable to escape from danger; terror.:(e.g., He felt a deep sense of abhorrence as the storm approached with no shelter available.)",
+      "Intense dislike or hatred towards someone or something: (e.g., Her abhorrence for injustice led her to volunteer at local charities regularly.)",
+      "A strong liking and positive feeling about a person, place, thing, idea; fondness:"
+    ],
+    "correct_answer": 2
+  },
+  {
+    "word": "abhorrent",
+    "question": "What does the word 'abhorrent' mean?",
+    "choices": [
+      "Extremely unpleasant or offensive; repugnant",
+      "Characterized by great strength and power",
+      "Full of joyous festivities, merrymaking",
+      "A sense of calmness in a serene environment"
+    ],
+    "correct_answer": 0
+  },
+  {
+    "word": "abidance",
+    "question": "What does the word 'abidance' mean?",
+    "choices": [
+      "A process of actively participating in an event or situation,",
+      "Adherence to a rule, principle, or practice consistently over time,",
+      "The state of being present at all times without exception,",
+      " A formal agreement between two parties"
+    ],
+    "correct_answer": 2
+  },
+  {
+    "word": "abiding",
+    "question": "What does the word 'abiding' mean?",
+    "choices": [
+      "Staying in a particular place; reside or dwell permanently",
+      "Suffer from an illness without improvement over time",
+      "The action of abating gradually, as rain diminishing after a storm",
+      "A period during which someone is not allowed to act freely"
+    ],
+    "correct_answer": 0
+  },
+  {
+    "word": "abject",
+    "question": "What does the word 'abject' best describe?",
+    "choices": [
+      "Filled with rage and anger",
+      "Extremely miserable or humiliating",
+      "Showing great joy and happiness",
+      "Marked by a high level of intelligence"
+    ],
+    "correct_answer": 0
+  },
+  {
+    "word": "abjure",
+    "question": "What does the term 'abjure' mean?",
+    "choices": [
+      "To publicly declare allegiance to a cause or leader",
+      "To firmly and unequivocally reject, refuse, or renounce something (such as an idea or practice).",
+      "To thoroughly examine with careful consideration",
+      "A formal declaration of marriage"
+    ],
+    "correct_answer": 1
+  },
+  {
+    "word": "able-bodied",
+    "question": "What does the term 'able-bodied' refer to?",
+    "choices": [
+      "having supernatural powers or abilities",
+      "physically disabled and unable to work",
+      "not having any disabilities, capable of working physically",
+      "a state of mental incapacity"
+    ],
+    "correct_answer": 2
+  },
+  {
+    "word": "ablution",
+    "question": "What does the term 'ablution' refer to?",
+    "choices": [
+      "A process of purification by washing or bathing; cleansing ritual, typically in a religious context",
+      "The act of consuming alcoholic beverages socially and recreationally",
+      "An advanced mathematical operation involving the calculation of complex equations",
+      "Physical exercise aimed at improving cardiovascular health"
+    ],
+    "correct_answer": 0
+  },
+  {
+    "word": "abnegate",
+    "question": "What does the word 'abnegate' mean?",
+    "choices": [
+      "To accept and embrace one\u2019s responsibilities wholeheartedly",
+      "To deny or reject something offered, typically a privilege; to refuse oneself certain rights or benefits",
+      "To express gratitude openly for assistance received",
+      "A formal agreement between two parties"
+    ],
+    "correct_answer": 1
+  },
+  {
+    "word": "abnegation",
+    "question": "What does the word 'abnegation' mean?",
+    "choices": [
+      "The act of denying oneself, especially comforts or pleasures; self-discipline and restraint from indulging in one\u2019s own wants,",
+      "An enthusiastic acceptance and celebration of life's offerings without reservation,",
+      "A formal agreement between two parties to undertake a joint venture, typically involving the exchange or sharing of resources.",
+      "The refusal to give up something that one holds dear despite being asked or expected not to do so"
+    ],
+    "correct_answer": 0
+  },
+  {
+    "word": "abnormal",
+    "question": "What does the term 'abnormal' signify?",
+    "choices": [
+      "Typically observed behavior within a group or context; standard and expected",
+      "Uncommon, deviating from what is usual, typical, or normal in appearance, quantity, or quality",
+      "Exceeding an acceptable limit of temperature for safe operation without risk to equipment or environment",
+      "A type of musical note that represents the lowest pitch on piano keyboards"
+    ],
+    "correct_answer": 1
+  },
+  {
+    "word": "abode",
+    "question": "What does the word 'abode' mean?",
+    "choices": [
+      "A type of musical instrument",
+      "A place where someone lives or stays temporarily",
+      "An architectural structure with no doors, windows, and a flat roof",
+      "The process by which plants produce oxygen"
+    ],
+    "correct_answer": 2
+  },
+  {
+    "word": "abolish",
+    "question": "What does the word 'abolish' mean?",
+    "choices": [
+      "To promote or support strongly, [0]",
+      "To legally nullify a law or system of government; put an end to by formal process[3]",
+      "To make something larger in size,[2]",
+      "To begin construction on new infrastructure,[1]"
+    ],
+    "correct_answer": 3
+  },
+  {
+    "word": "abominable",
+    "question": "What does the word 'abominable' mean?",
+    "choices": [
+      "Extremely pleasant or delightful",
+      "Very displeasing, unacceptable, or hateful",
+      "Famous and well-known to a large number of people",
+      "Relating to the study of celestial objects"
+    ],
+    "correct_answer": 1
+  },
+  {
+    "word": "abominate",
+    "question": "What does the word 'abominate' mean?",
+    "choices": [
+      "To greatly admire or respect something",
+      "To find extremely unpleasant and disgusting; to detest vehemently",
+      "To make a formal complaint about an issue in public forums",
+      "To study thoroughly with attention and care"
+    ],
+    "correct_answer": 0
+  },
+  {
+    "word": "abomination",
+    "question": "What does the word 'abomination' signify?",
+    "choices": [
+      "A highly esteemed achievement or honorable act: -1,",
+      "An offensive and repugnant action considered morally wrong by society: 0,",
+      "The process of organizing a large number of elements systematically into groups based on shared characteristics: 2,",
+      "A small insect that primarily feeds on plant sap or animal blood: 3"
+    ],
+    "correct_answer": 0
+  },
+  {
+    "word": "aboriginal",
+    "question": "What does the term 'aboriginal' refer to?",
+    "choices": [
+      "Originating from or related to an indigenous group in a region, especially before colonization by other cultures.',",
+      "A type of native Australian wildlife species that is nocturnal and insectivorous.',",
+      "'The process of adapting imported technology for local use within another country.'",
+      "% Correct answer index: 0"
+    ],
+    "correct_answer": 0
+  },
+  {
+    "word": "aborigines",
+    "question": "What is the primary definition of 'aborigines'?",
+    "choices": [
+      "Indigenous peoples native to a region before colonialism or outside influences arrived; original inhabitants",
+      "A large group of ancient trees found in tropical rainforests",
+      "An early form of written communication system used by civilizations throughout history",
+      "The smallest unit of measurement for land area"
+    ],
+    "correct_answer": 0
+  },
+  {
+    "word": "abdominal",
+    "question": "What does the term 'abdominal' refer to?",
+    "choices": [
+      "Related to or situated in the chest area",
+      "Pertaining to a region of muscles and organs below ribs and above pelvis",
+      "Associated with limbs like arms or legs",
+      "Concerned with sensory perception"
+    ],
+    "correct_answer": 2
+  },
+  {
+    "word": "abide",
+    "question": "What does the word 'abide' mean?",
+    "choices": [
+      "To resist or oppose strongly",
+      "To adhere to rules, laws, etc.: obey them",
+      "To walk in a particular direction without stopping",
+      "To enjoy leisure activities"
+    ],
+    "correct_answer": 1
+  },
+  {
+    "word": "abortive",
+    "question": "What does the term 'abortive' mean?",
+    "choices": [
+      "Successful and fully realized to completion",
+      "Having an initial start but failing before it can be completed successfully",
+      "Continuing without interruption or end in sight",
+      "Characterized by calm, serenity, and peace"
+    ],
+    "correct_answer": 1
+  },
+  {
+    "word": "abound",
+    "question": "What does the word 'abound' mean?",
+    "choices": [
+      "To be in large numbers or quantity; to exist plentifully, richly, abundantly"
+    ],
+    "correct_answer": 0
+  },
+  {
+    "word": "aboveboard",
+    "question": "What does the term 'aboveboard' signify when used in context?",
+    "choices": [
+      "Below ground level; hidden from view",
+      "Transparent and honest, without deceit or corruption",
+      "On board a ship during rough weather",
+      "Out of bounds on the playing field"
+    ],
+    "correct_answer": 1
+  },
+  {
+    "word": "abrade",
+    "question": "What does the word 'abrade' mean?",
+    "choices": [
+      "To polish and shine something until it gleams",
+      "To erode or wear away by friction, typically of a surface",
+      "A medical procedure to remove skin layers for examination",
+      "An ancient ritual performed during harvest season"
+    ],
+    "correct_answer": 2
+  },
+  {
+    "word": "abrasion",
+    "question": "What does the term 'abrasion' refer to?",
+    "choices": [
+      "A type of musical composition involving repetitive rhythms and beats",
+      "The act or process by which material is worn away from a surface through friction",
+      "An emotional state characterized by extreme sadness, typically without apparent cause",
+      "A legal term referring to the formal endorsement of an agreement between parties"
+    ],
+    "correct_answer": 2
+  },
+  {
+    "word": "abrasive",
+    "question": "What does the word 'abrasive' primarily describe?",
+    "choices": [
+      "Characterized by a smooth and polished surface",
+      "Having or causing friction; rough in texture",
+      "Extremely gentle to touch, often used for delicate materials",
+      "Relating to the process of erosion through natural forces"
+    ],
+    "correct_answer": 1
+  },
+  {
+    "word": "abreast",
+    "question": "What does the word 'abreast' mean in relation to movement?",
+    "choices": [
+      "Moving backward at a slow pace",
+      "Traveling side by side, keeping up with someone or something",
+      "Stopping abruptly without moving forward",
+      "Leaping over obstacles quickly"
+    ],
+    "correct_answer": 1
+  },
+  {
+    "word": "abridge",
+    "question": "What does the word 'abridge' mean?",
+    "choices": [
+      "To lengthen or extend something significantly",
+      "To condense, shorten, or omit parts of a text without losing its sense and essence",
+      "To disregard completely with no regard for the original content",
+      "To annotate or explain in detail"
+    ],
+    "correct_answer": 1
+  },
+  {
+    "word": "abridgment",
+    "question": "What does the word 'abridgment' refer to?",
+    "choices": [
+      "A condensed version of a work, retaining its main points or ideas; shortened for easier reading or reference."
+    ],
+    "correct_answer": 0
+  },
+  {
+    "word": "abrogate",
+    "question": "What does the term 'abrogate' mean?",
+    "choices": [
+      "To establish formally and officially",
+      "To put an end to or repeal formally (a law, right, or practice by decree; annul).",
+      "To enhance or improve gradually over time",
+      "To engage in a dialogue with others"
+    ],
+    "correct_answer": 1
+  },
+  {
+    "word": "abrupt",
+    "question": "What does the term 'abrupt' imply about an action or event?",
+    "choices": [
+      "Suddenly and without warning",
+      "Taking place over a long period of time",
+      "Gradually unfolding in detail",
+      "Characterized by elegance and finesse"
+    ],
+    "correct_answer": 0
+  },
+  {
+    "word": "abscess",
+    "question": "What does the term 'abscess' refer to in medical terminology?",
+    "choices": [
+      "A type of skin inflammation",
+      "An accumulation of pus within a tissue caused by an infected area, typically due to bacterial invasion or foreign material penetrating into it",
+      "The rapid growth phase of cancerous cells",
+      "A condition characterized by the absence of oxygen in bodily fluids"
+    ],
+    "correct_answer": 1
+  },
+  {
+    "word": "abscission",
+    "question": "What does the term 'abscission' refer to?",
+    "choices": [
+      "The process of a plant shedding its leaves in autumn",
+      "A type of musical composition typically performed during celebrations",
+      "An economic principle related to market equilibrium and pricing strategies",
+      "Biological phenomenon where an organism sheds or detaches part of itself"
+    ],
+    "correct_answer": 3
+  },
+  {
+    "word": "abscond",
+    "question": "What does the word 'abscond' mean?",
+    "choices": [
+      "To depart secretly and hurriedly, often to avoid detection or arrest",
+      "To loudly proclaim one\u2019s presence in a public space",
+      "To engage enthusiastically with an activity for pleasure",
+      "To carefully consider options before making a decision"
+    ],
+    "correct_answer": 0
+  },
+  {
+    "word": "absence",
+    "question": "What does the word 'absence' signify?",
+    "choices": [
+      "The presence of something or someone in a particular place at a given time",
+      "A lacking, defective part; shortage",
+      "An official declaration made by an authority to confirm truthfulness and originality",
+      "To increase the quantity of stock available"
+    ],
+    "correct_answer": 2
+  },
+  {
+    "word": "absent-minded",
+    "question": "What does the adjective 'absent-minded' imply about a person?",
+    "choices": [
+      "Extremely focused and attentive to details",
+      "Often forgetful due to preoccupation with other thoughts",
+      "Having an exceptional memory for events in sequence",
+      "Characterized by physical strength"
+    ],
+    "correct_answer": 1
+  },
+  {
+    "word": "absolute",
+    "question": "What does the term 'absolute' signify when describing a concept or quality?",
+    "choices": [
+      "Relatively small in degree; not complete, total, or entire",
+      "Without any comparison and completely independent of others",
+      "Subject to change based on external circumstances",
+      "Not entirely true but generally accepted as fact"
+    ],
+    "correct_answer": 1
+  },
+  {
+    "word": "absolution",
+    "question": "What does the term 'absolution' signify?",
+    "choices": [
+      "An act of confessing wrongdoings to a religious figure before forgiveness is granted",
+      "A formal declaration that someone has committed no offenses or crimes, granting them freedom from blame",
+      "The process by which an object becomes unstuck in space due to gravitational forces overcoming friction and air resistance",
+      "An emphatic endorsement of a policy proposal before it is put into effect"
+    ],
+    "correct_answer": 2
+  },
+  {
+    "word": "absolve",
+    "question": "What does the word 'absolve' mean?",
+    "choices": [
+      "To condemn someone for a crime or fault; to find guilty in court",
+      "To remove an obligation, debt, or guilt from something/someone",
+      "To join forces with others secretly against another party",
+      "To increase the intensity of effort and dedication"
+    ],
+    "correct_answer": 1
+  },
+  {
+    "word": "absorb",
+    "question": "What does the word 'absorb' mean?",
+    "choices": [
+      "To emit a strong odor; to permeate with smell",
+      "To take in or soak up completely, as liquid by capillary action",
+      "To reject firmly and steadfastly without consideration for alternative viewpoints",
+      "To launch into space"
+    ],
+    "correct_answer": 1
+  },
+  {
+    "word": "absorption",
+    "question": "What does the term 'absorption' primarily refer to?",
+    "choices": [
+      "The process of taking in or being taken into something, such as a liquid by a sponge",
+      "An emotional response characterized by feeling overwhelmed with sadness",
+      "A sudden and surprising event that causes shock or astonishment",
+      "In physics, the property of matter to take up energy from its surroundings"
+    ],
+    "correct_answer": 0
+  },
+  {
+    "word": "abstain",
+    "question": "What does the term 'abstain' signify in a decision-making context?",
+    "choices": [
+      "To actively support or vote for something",
+      "To refrain from voting, using one\u2019s voice, or engaging with an issue",
+      "To participate eagerly and enthusiastically",
+      "A method of counting votes"
+    ],
+    "correct_answer": 0
+  },
+  {
+    "word": "abstemious",
+    "question": "What does the word 'abstemious' mean?",
+    "choices": [
+      "Consuming food in moderation; not overindulgent",
+      "Excessively fond of alcoholic drinks",
+      "Unable to endure pain or hardship without complaint",
+      "Eagerly seeking luxury and pleasure"
+    ],
+    "correct_answer": 0
+  },
+  {
+    "question": "What does the word 'abstemious' mean?\nA) Extremely generous in giving gifts and money.\nB) Having great self-restraint, especially with regard to food and drink consumption.\nC) Displaying a lack of knowledge or understanding about complex subjects.\nD) Inclined towards excessive celebration and feasting activities.\n",
+    "choices": [
+      "Extremely generous in giving gifts and money",
+      "Having great self-restraint, especially with regard to food and drink consumption",
+      "Displaying a lack of knowledge or understanding about complex subjects",
+      "Inclined towards excessive celebration and feasting activities"
+    ],
+    "correct_answer": 1,
+    "word": "abstemious"
+  },
+  {
+    "word": "abstinence",
+    "question": "What does the term 'abstinence' primarily refer to?",
+    "choices": [
+      "The act of refraining from indulging in certain foods for health reasons",
+      "A period during which one voluntarily avoids sexual intercourse or other forms of intimacy as a form of self-discipline or moral principle",
+      "An artistic movement focused on minimalism and simplicity",
+      "The process by which plants convert sunlight into energy"
+    ],
+    "correct_answer": 2
+  },
+  {
+    "word": "abstract",
+    "question": "What does the term 'abstract' primarily refer to in an academic context?",
+    "choices": [
+      "A detailed and concise summary of a research paper or article",
+      "The process by which artists create visual art using minimalistic elements",
+      "An area designated for sports activities like soccer, basketball etc., within educational institutions",
+      "A complex mathematical equation that cannot be simplified"
+    ],
+    "correct_answer": 0
+  },
+  {
+    "word": "abstruse",
+    "question": "What does the term 'abstruse' best describe?",
+    "choices": [
+      "Extremely clear and easily understandable; transparent in meaning or concept",
+      "Very complex, obscure, or difficult to comprehend",
+      "Of great importance or significance with a profound effect on an outcome",
+      "Relating specifically to the study of ancient languages"
+    ],
+    "correct_answer": 1
+  },
+  {
+    "word": "absurd",
+    "question": "What does the word 'absurd' imply when describing a situation or idea?",
+    "choices": [
+      "A logical and reasonable circumstance",
+      "An action that is ridiculous but not necessarily illogical, often humorous in nature",
+      "Something out of place with regard to time or sequence without implying any absurdity",
+      "Idea characterized by strict adherence to conventional wisdom"
+    ],
+    "correct_answer": 0
+  },
+  {
+    "word": "abundant",
+    "question": "What does the word 'abundant' imply about a quantity or resource?",
+    "choices": [
+      "Scarcely available, almost non-existent",
+      "Moderately present but not in great supply",
+      "Present in large quantities; plentiful",
+      "Unknown and cannot be determined"
+    ],
+    "correct_answer": 2
+  },
+  {
+    "word": "abuse",
+    "question": "What does the word 'abuse' primarily refer to?",
+    "choices": [
+      "Excessive or violent treatment of a person, animal, or property: mistreatment; neglect.\n",
+      "The act of using something for its intended purpose in an efficient and effective manner:\nsufficiently utilizing resources;\napplying knowledge appropriately.;\nnavigating with skill; properly applying techniques. \n",
+      "'Abuse' is a term used exclusively within the context of legal proceedings to describe evidence presented during trials.\n"
+    ],
+    "correct_answer": 0
+  },
+  {
+    "word": "abusive",
+    "question": "What does the word 'abusive' primarily describe?",
+    "choices": [
+      "Excessively harsh or cruel in behavior; intimidating and domineering towards others, especially a family member.",
+      "The act of using excessive force physically against someone.",
+      "Giving generous praise to an individual for their achievements.",
+      "A methodical approach taken by researchers during experimentation"
+    ],
+    "correct_answer": 0
+  },
+  {
+    "word": "abut",
+    "question": "What does the word 'abut' mean?",
+    "choices": [
+      "To merge or combine seamlessly with something else",
+      "To touch closely at a boundary without intersecting",
+      "To argue vehemently against an idea",
+      "To float above and not affect another object"
+    ],
+    "correct_answer": 1
+  },
+  {
+    "word": "abysmal",
+    "question": "What does the word 'abysmal' best describe?",
+    "choices": [
+      "Extremely good or positive quality",
+      "Slightly below average but acceptable",
+      "Negative and of very poor standard",
+      "Unremarkable with no significant characteristics"
+    ],
+    "correct_answer": 2
+  },
+  {
+    "word": "abstemious",
+    "question": "What does the word 'abstemious' mean?",
+    "choices": [
+      "Excessively fond of eating and drinking; gluttonous",
+      "Having or showing good judgment, especially in matters relating to food and drink consumption",
+      "Feeling a strong dislike for alcoholic beverages only occasionally indulging in them",
+      "Unwillingness to spend money extravagantly"
+    ],
+    "correct_answer": 2
+  },
+  {
+    "word": "abyss",
+    "question": "What does the word 'abyss' signify in a geographical context?",
+    "choices": [
+      "A steep cliff or deep hole",
+      "An ancient artifact found underground",
+      "The highest point of elevation on land",
+      "A small, shallow body of still water"
+    ],
+    "correct_answer": 0
+  },
+  {
+    "word": "academic",
+    "question": "What does the term 'academic' primarily relate to?",
+    "choices": [
+      "A school building where classes are held",
+      "The pursuit of knowledge, especially within a university or college setting",
+      "An area designated for athletic activities like sports and exercise",
+      "Professional employment in fields such as business or law"
+    ],
+    "correct_answer": 1
+  },
+  {
+    "word": "academician",
+    "question": "What is the meaning of 'academician'?",
+    "choices": [
+      "A person who studies agriculture extensively",
+      "An individual dedicated to artistic pursuits in a studio or gallery setting",
+      "Someone devoted to scholarly research and teaching, typically within academic institutions",
+      "A professional athlete competing at an international level"
+    ],
+    "correct_answer": 2
+  },
+  {
+    "word": "academy",
+    "question": "What is the primary function of an academy?",
+    "choices": [
+      "A large sports stadium for athletic events",
+      "An institution dedicated to higher learning or specialized education",
+      "A government building where laws are created and passed",
+      "A marketplace with various stalls offering goods"
+    ],
+    "correct_answer": 1
+  },
+  {
+    "word": "accede",
+    "question": "What does the word 'accede' mean?",
+    "choices": [
+      "To refuse or decline something politely",
+      "To agree to a demand, request, or plea",
+      "A formal agreement between countries on trade tariffs",
+      "An official act of granting access rights"
+    ],
+    "correct_answer": 1
+  },
+  {
+    "word": "accelerate",
+    "question": "What does the word 'accelerate' mean?",
+    "choices": [
+      "To slow down or reduce speed gradually",
+      "To increase in rate of movement, development, or growth",
+      "To remain stationary without any change over time",
+      "To decelerate rapidly"
+    ],
+    "correct_answer": 1
+  },
+  {
+    "word": "accentuate",
+    "question": "What does the word 'accentuate' mean?",
+    "choices": [
+      "To diminish or reduce in importance, significance, value; weaken",
+      "To emphasize or make more noticeable by stressing a feature of something",
+      "A formal agreement between two parties that outlines the terms and conditions binding them to each other",
+      "The action or process whereby an organism adjusts itself after being moved from one environment to another"
+    ],
+    "correct_answer": 1
+  },
+  {
+    "word": "accept",
+    "question": "What does the verb 'to accept' mean?",
+    "choices": [
+      "To refuse or decline something offered, suggested, or implied",
+      "To receive willingly and with approval; to agree to take on a situation as valid or satisfactory for oneself",
+      "The act of putting off an action until later time(s) without negative connotation",
+      "A strong feeling that one has about someone, something based solely upon appearance"
+    ],
+    "correct_answer": 2
+  },
+  {
+    "question": "What does the word 'access' primarily denote?\nA) The action of reaching or entering a place.\nB) A system for assigning access rights to users and resources in computing contexts.\nC) An agreement among individuals with common interests, often involving shared use of facilities.\nD) Restrictions imposed on the availability of certain information. \n",
+    "choices": [
+      "The action of reaching or entering a place",
+      "A system for assigning access rights to users and resources in computing contexts",
+      "An agreement among individuals with common interests, often involving shared use of facilities",
+      "Restrictions imposed on the availability of certain information"
+    ],
+    "correct_answer": 0,
+    "word": "access"
+  },
+  {
+    "word": "abstemioius",
+    "question": "What does 'abstemious' describe?",
+    "choices": [
+      "Excessively indulging in food and drinks",
+      "Showing moderation, especially with eating or drinking"
+    ],
+    "correct_answer": 1
+  },
+  {
+    "word": "accessible",
+    "question": "What does the word 'accessible' primarily describe?",
+    "choices": [
+      "Easily reached or entered; not difficult to obtain, use, understand."
+    ],
+    "correct_answer": 0
+  },
+  {
+    "word": "accession",
+    "question": "What does the term 'accession' typically refer to?",
+    "choices": [
+      "A formal agreement between countries for mutual defense purposes",
+      "The act of becoming a member or entering into something, such as an office or collection of works",
+      "An official celebration marking significant events like birthdays and anniversaries",
+      "To withhold information from someone deliberately"
+    ],
+    "correct_answer": 1
+  },
+  {
+    "word": "accessory",
+    "question": "What does the word 'accessory' mean?",
+    "choices": [
+      "An additional feature or appendage that complements something else but is not essential for its primary function, typically a piece of clothing like jewelry or watches worn to enhance appearance. In legal terms, it also refers to an accomplice in crime who assists the principal offender without taking part directly in criminal acts themselves.\n",
+      "A tool used exclusively by mechanics for repairing engines and machinery; not typically associated with personal adornment or law enforcement terminology. \n",
+      "'Accessory' refers to a legal term describing someone who helps commit an offense, though they do so without being present at the crime scene themselves.\n",
+      "A substance used in chemical reactions as part of laboratory experiments; unrelated to fashion or criminal law."
+    ],
+    "correct_answer": 3
+  },
+  {
+    "word": "accidental",
+    "question": "What does the adjective 'accidental' imply about an event or occurrence?",
+    "choices": [
+      "Relating to a natural disaster such as earthquakes or floods",
+      "Intended and purposeful with clear foresight",
+      "Happening by chance without deliberate intention",
+      "Caused due to negligence resulting in harm"
+    ],
+    "correct_answer": 2
+  },
+  {
+    "word": "acclaim",
+    "question": "What does the word 'acclaim' mean?",
+    "choices": [
+      "A measure of distance in space",
+      "Applause or praise given to someone for an achievement",
+      "The act of walking quickly and noisily on a hard surface",
+      "An official recognition by law enforcement"
+    ],
+    "correct_answer": 1
+  },
+  {
+    "word": "acclimate",
+    "question": "What does the word 'acclimate' mean?",
+    "choices": [
+      "To adjust to a new environment or climate gradually over time",
+      "To completely transform into another state of matter upon heating",
+      "To calculate mathematical equations quickly and accurately",
+      "To remove impurities from a substance through chemical reactions"
+    ],
+    "correct_answer": 0
+  },
+  {
+    "word": "acclivity",
+    "question": "What does the word 'acclivity' refer to?",
+    "choices": [
+      "A slope or incline that is difficult to climb upwards on due to steepness, typically used in topographical contexts: A. downward slant B. level surface C. uphill gradient D. circular route"
+    ],
+    "correct_answer": 3
+  },
+  {
+    "word": "accolade",
+    "question": "What does the word 'accolade' mean?",
+    "choices": [
+      "A type of headwear worn during formal ceremonies",
+      "An expression of praise or commendation given to someone for their achievements",
+      "The act of physically supporting one another in a group setting",
+      "A musical instrument used primarily in orchestras"
+    ],
+    "correct_answer": 1
+  },
+  {
+    "word": "accommodate",
+    "question": "What does the word 'accommodate' mean?",
+    "choices": [
+      "To oppose or resist something strongly",
+      "To provide with a place to live, work, etc. suitable for someone\u2019s needs",
+      "To move rapidly through space without obstruction",
+      "A mathematical equation representing equality"
+    ],
+    "correct_answer": 1
+  },
+  {
+    "word": "accompaniment",
+    "question": "What does the term 'accompaniment' refer to in music?",
+    "choices": [
+      "The main melody that is performed by a soloist or singer without any additional parts",
+      "A musical part played at the same time as another for harmony and rhythm support",
+      "An instrumental piece unrelated to other sections in an ensemble performance",
+      "The lyrics of a song"
+    ],
+    "correct_answer": 1
+  },
+  {
+    "word": "accompanist",
+    "question": "What is the meaning of 'accompanist' in a musical context?",
+    "choices": [
+      "A person who plays an independent solo performance, often improvising on their own instrument.",
+      "The individual providing support to another performer by playing music that complements or harmonizes with them during rehearsals and performances.",
+      "Someone responsible for the overall direction of a musical piece without regard to other musicians' contributions.",
+      "A leader who orchestrates all instruments in an ensemble, ensuring they work together cohesively."
+    ],
+    "correct_answer": 2
+  }
+]
