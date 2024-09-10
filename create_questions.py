@@ -47,7 +47,7 @@ class QuizQuestion(BaseModel):
 
 
 class ValidationResult(BaseModel):
-    is_valid: bool
+    is_correct: bool
 
 
 # Generate prompt with system message and user message

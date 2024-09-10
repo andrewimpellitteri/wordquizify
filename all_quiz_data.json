@@ -995,5 +995,38 @@
       "A leader who orchestrates all instruments in an ensemble, ensuring they work together cohesively."
     ],
     "correct_answer": 2
+  },
+  {
+    "word": "accompany",
+    "question": "What does the word 'accompany' mean?",
+    "choices": [
+      "To follow someone on a journey without leading or guiding them, typically for companionship.",
+      "To provide financial support to an individual in need of assistance.",
+      "To join another person socially and spend time with them often as friends do.",
+      "To perform music together at the same event."
+    ],
+    "correct_answer": 0
+  },
+  {
+    "word": "accomplice",
+    "question": "What does the term 'accomplice' refer to?",
+    "choices": [
+      "A person who witnesses a crime without participating in it",
+      "An individual that helps another commit an illegal act, often knowingly and willfully",
+      "Someone who is legally responsible for the outcome of events but did not directly cause them",
+      "A bystander present at a scene where something happens"
+    ],
+    "correct_answer": 1
+  },
+  {
+    "word": "accomplish",
+    "question": "What does the word 'accomplish' mean?",
+    "choices": [
+      "To fail at something repeatedly",
+      "To complete or achieve a goal successfully",
+      "A small, insignificant task",
+      "The act of abandoning an endeavor"
+    ],
+    "correct_answer": 1
   }
 ]
