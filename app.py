@@ -1,4 +1,4 @@
-from flask import Flask, render_template_string, request, render_template
+from flask import Flask, render_template_string, request, render_template, session
 import json
 import random
 import ast
@@ -9,6 +9,8 @@ from werkzeug.utils import secure_filename
 app = Flask(__name__)
 
 app.config['TEMPLATES_AUTO_RELOAD'] = True
+app.secret_key = 'your_local_secret_key_here'
+
 
 # Load the quiz data
 with open("all_quiz_data.json", "r") as f:
@@ -16,11 +18,14 @@ with open("all_quiz_data.json", "r") as f:
 
 @app.route('/')
 def index():
+    session['score'] = 0
+    session['total_questions'] = 0
     return render_template("index.html")
 
 @app.route("/get-question")
 def get_question():
     question = random.choice(all_quiz_data)
+    session['total_questions'] += 1
     return render_template_string(
         """
     <div class="p-4">
@@ -62,6 +67,11 @@ def check_answer():
 
     correct_choice = choices[correct_answer_index]
     is_correct = user_answer == correct_answer_index
+    
+    if is_correct:
+        session['score'] += 1
+    
+    score_percentage = (session['score'] / session['total_questions']) * 100
     result_message = (
         "Correct!"
         if is_correct
@@ -70,21 +80,38 @@ def check_answer():
 
     return render_template_string(
         """
-    <div class="p-4">
+        <div class="p-4">
         <h2 class="text-xl font-semibold mb-2">Result</h2>
         <p class="{{ 'text-green-600' if is_correct else 'text-red-600' }}">
             {{ result_message }}
         </p>
+        <div class="mt-4 p-4 bg-gray-100 dark:bg-gray-800 rounded-lg shadow-inner">
+            <h3 class="text-lg font-semibold mb-2">Your Score</h3>
+            <div class="flex items-center justify-between">
+                <div class="text-3xl font-bold {{ 'text-green-500' if score_percentage >= 70 else 'text-yellow-500' if score_percentage >= 40 else 'text-red-500' }}">
+                    {{ "%d%%" | format(score_percentage) }}
+                </div>
+                <div class="text-sm text-gray-600 dark:text-gray-400">
+                    {{ session['score'] }} / {{ session['total_questions'] }} correct
+                </div>
+            </div>
+            <div class="mt-2 bg-gray-200 dark:bg-gray-700 rounded-full h-4 overflow-hidden">
+                <div class="h-full {{ 'bg-green-500' if score_percentage >= 70 else 'bg-yellow-500' if score_percentage >= 40 else 'bg-red-500' }}" style="width: {{ score_percentage }}%;"></div>
+            </div>
+        </div>
         <button hx-get="/get-question" 
                 hx-target="#quiz-container" 
                 class="mt-4 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
             Next Question
         </button>
     </div>
-    """,
+        """,
         is_correct=is_correct,
         result_message=result_message,
+        score_percentage=score_percentage,
     )
+
+
 
 UPLOAD_FOLDER = 'uploads'
 
@@ -127,11 +154,19 @@ def upload_file():
 def hfsearch():
     repo = request.form.get('repo')
     filename = request.form.get('filename')
+    do_validation = request.form.get('validation')
     
     # Process the input values here
     # For now, we'll just print them
     print(f"Repo: {repo}")
     print(f"Filename: {filename}")
+    print(f"Do validation: {do_validation}")
+
+    return render_template_string("""
+    <div>
+        generating questions...
+    </div>
+    """)
 
 
 

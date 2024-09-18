@@ -85,7 +85,7 @@
         }
 
                 /* New styles for tabs and search bar */
-                .tabs {
+        .tabs {
             display: flex;
             border-bottom: 1px solid hsl(var(--border));
             margin-bottom: 20px;
@@ -133,6 +133,51 @@
 
         .search-button:hover {
             opacity: 0.8;
+        }
+
+        .score-container {
+            background-color: hsl(var(--card));
+            border-radius: 8px;
+            padding: 16px;
+            margin-top: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .score-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: hsl(var(--foreground));
+        }
+
+        .score-display {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .score-percentage {
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+
+        .score-fraction {
+            font-size: 1rem;
+            color: hsl(var(--muted-foreground));
+        }
+
+        .score-bar {
+            height: 8px;
+            background-color: hsl(var(--muted));
+            border-radius: 4px;
+            overflow: hidden;
+            margin-top: 8px;
+        }
+
+        .score-progress {
+            height: 100%;
+            transition: width 0.5s ease;
         }
     </style>
 </head>
@@ -192,7 +237,7 @@
            <div id="search-container" style="display: none;">
             <div class="card w-full ml-0 mr-auto overflow-hidden shadow-lg transition-all duration-300 hover:shadow-xl bg-white dark:bg-gray-800">
               <div class="p-8">
-                <form action="{{ url_for('hfsearch') }}" method="POST">
+                <form action="{{ url_for('hfsearch') }}" method="POST" enctype="multipart/form-data">
                   <div class="search-bar mb-6">
                     <!-- Repo Input -->
                     <div class="mb-4">
@@ -210,13 +255,10 @@
                              placeholder="Enter a filename (e.g. Phi-3.5-mini-instruct.Q5_K_M.gguf)">
                     </div>
                   </div>
-                </form>
                  
-                <!-- Upload Section and Validation Checkbox -->
-                <div class="flex flex-wrap mt-8">
                   <!-- Upload Section -->
-                  <div class="w-full md:w-1/2 pr-4">
-                    <form hx-post="/upload" hx-encoding="multipart/form-data" hx-target="#upload-status">
+                  <div class="flex flex-wrap mt-8">
+                    <div class="w-full md:w-1/2 pr-4">
                       <div class="flex flex-col items-center justify-center space-y-6 text-center">
                         <div class="relative">
                           <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-16 h-16 text-blue-500 dark:text-blue-400 relative z-10">
@@ -242,29 +284,26 @@
                           </label>
                         </div>
                       </div>
-                      <button type="submit" class="mt-4 btn w-full bg-blue-500 hover:bg-blue-600 text-white dark:bg-blue-600 dark:hover:bg-blue-400">Upload</button>
-                    </form>
-                    <div id="upload-status" class="mt-6 text-sm text-center text-gray-600 dark:text-gray-400"></div>
-                  </div>
-                  
-                  <!-- Validation Checkbox -->
-                  <div class="w-full md:w-1/2 pl-4 flex items-center">
-                    <div class="uk-grid uk-grid-small uk-margin uk-child-width-auto">
-                      <label class="flex items-center space-x-2">
-                        <input class="uk-checkbox" type="checkbox" checked />
-                        <span class="text-gray-700 dark:text-gray-300">Validation?</span>
-                      </label>
+                    </div>
+                    
+                    <!-- Validation Checkbox -->
+                    <div class="w-full md:w-1/2 pl-4 flex items-center">
+                      <div class="uk-grid uk-grid-small uk-margin uk-child-width-auto">
+                        <label class="flex items-center space-x-2">
+                          <input type="checkbox" name="validation" value="true" class="uk-checkbox">
+                          <span class="text-gray-700 dark:text-gray-300">Validation?</span>
+                        </label>
+                      </div>
                     </div>
                   </div>
-                </div>
           
-                <!-- Generate Questions Button -->
-                <div class="mt-6">
-                  <button class="w-full block bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-lg dark:bg-blue-600 dark:hover:bg-blue-400">
-                    Generate Questions
-                  </button>
-                </div>
-          
+                  <!-- Generate Questions Button -->
+                  <div class="mt-6">
+                    <button type="submit" class="w-full block bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-lg dark:bg-blue-600 dark:hover:bg-blue-400">
+                      Generate Questions
+                    </button>
+                  </div>
+                </form>
               </div>
             </div>
           </div>
@@ -274,10 +313,7 @@
             Loading question...
           </div>
 
-          <div class="card" id="feedback-container">
-              <h2 class="text-xl font-semibold">Feedback</h2>
-              <p class="feedback">Answer results and feedback will appear here after you submit.</p>
-          </div>
+
         </div>
     </div>
 
@@ -326,6 +362,32 @@
                 searchContainer.style.display = 'block';
             }
         }
+
+         // Add this new function to update the score display
+         function updateScoreDisplay(score, total, percentage) {
+            document.getElementById('score-percentage').textContent = percentage.toFixed(0) + '%';
+            document.getElementById('score-fraction').textContent = score + ' / ' + total + ' correct';
+            const progressBar = document.getElementById('score-progress');
+            progressBar.style.width = percentage + '%';
+            
+            if (percentage >= 70) {
+                progressBar.style.backgroundColor = 'hsl(142, 76%, 36%)'; // Green
+            } else if (percentage >= 40) {
+                progressBar.style.backgroundColor = 'hsl(48, 96%, 53%)'; // Yellow
+            } else {
+                progressBar.style.backgroundColor = 'hsl(0, 84%, 60%)'; // Red
+            }
+        }
+
+        // You'll need to call this function after each question is answered
+        // For example, you can modify your HTMX afterSwap event to include this update
+        document.body.addEventListener('htmx:afterSwap', function(event) {
+            if (event.detail.target.id === 'quiz-container') {
+                const scorePercentage = parseFloat(document.querySelector('.score-percentage').textContent);
+                const [score, total] = document.querySelector('.score-fraction').textContent.split(' / ')[0].split(' ');
+                updateScoreDisplay(parseInt(score), parseInt(total), scorePercentage);
+            }
+        });
     </script>
 </body>
 </html>
