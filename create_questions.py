@@ -28,14 +28,15 @@ def load_from_json_file(filename: str) -> List[dict]:
 
 
 # Load the Llama model using from_pretrained method
-def load_model():
+def load_model(repo_id="QuantFactory/Phi-3.5-mini-instruct-GGUF", filename="Phi-3.5-mini-instruct.Q5_K_M.gguf"):
     llm = Llama.from_pretrained(
-        repo_id="QuantFactory/Phi-3.5-mini-instruct-GGUF",
-        filename="Phi-3.5-mini-instruct.Q5_K_M.gguf",
+        repo_id=repo_id,
+        filename=filename,
         use_mlock=True,
         n_gpu_layers=-1,
     )
     return llm
+
 
 
 # Define the Pydantic schema for a quiz question
