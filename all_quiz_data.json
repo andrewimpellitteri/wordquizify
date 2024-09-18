@@ -1028,5 +1028,82 @@
       "The act of abandoning an endeavor"
     ],
     "correct_answer": 1
+  },
+  {
+    "word": "accord",
+    "question": "What does the word 'accord' mean?",
+    "choices": [
+      "A loud noise or clash of sounds",
+      "An agreement between people, especially after a dispute; harmony in feelings and opinions",
+      "To move quickly with forceful steps",
+      "The act of singing together"
+    ],
+    "correct_answer": 1
+  },
+  {
+    "word": "accordion",
+    "question": "What musical instrument, characterized by its bellows and reeds, is played by expanding and compressing air through a series of buttons or keys?",
+    "choices": [
+      "A stringed keyboard with hammers to strike strings (0)",
+      "An electronic device that generates sound waves at various frequencies (1)",
+      "A wind instrument featuring rows of buttons for playing melodies, often associated with folk music and dance bands (2)",
+      "A percussion instrument struck by the hands or sticks while being held vertically above a vibrating skin head (3)"
+    ],
+    "correct_answer": 2
+  },
+  {
+    "word": "accost",
+    "question": "What does the word 'accost' mean?",
+    "choices": [
+      "To approach someone in a bold or aggressive manner, often to speak with them directly and unexpectedly",
+      "A formal greeting between diplomats during an international summit",
+      "The act of quietly observing wildlife from afar without disturbing it",
+      "An architectural style characterized by ornate decorations"
+    ],
+    "correct_answer": 0
+  },
+  {
+    "word": "account",
+    "question": "What does the word 'account' primarily refer to?",
+    "choices": [
+      "A record of financial transactions or debts and credits over time",
+      "An explanation for a phenomenon, event, action, character etc.: an account of what happened",
+      "The act of representing someone in court; advocacy on their behalf",
+      "To regard with suspicion"
+    ],
+    "correct_answer": 0
+  },
+  {
+    "word": "accouter",
+    "question": "What does the word 'accouter' mean?",
+    "choices": [
+      "To adorn with accessories or additional items for a specific purpose",
+      "To remove clothing from someone forcefully",
+      "A type of ancient currency used in trade",
+      "The act of making an official announcement"
+    ],
+    "correct_answer": 0
+  },
+  {
+    "word": "accoutre",
+    "question": "What does the word 'accoutre' mean?",
+    "choices": [
+      "To decorate or furnish with additional items for a specific purpose, especially military uniforms and equipment",
+      "A type of ancient currency used in trade during medieval times",
+      "The process by which plants convert sunlight into energy through photosynthesis",
+      "An architectural style characterized by pointed arches and ribbed vaulting"
+    ],
+    "correct_answer": 0
+  },
+  {
+    "word": "accredit",
+    "question": "What does the word 'accredit' mean?",
+    "choices": [
+      "To deny or disregard someone\u2019s achievements or contributions",
+      "To officially acknowledge and confirm as valid, reliable, or of high quality",
+      "A formal declaration that a person is guilty beyond reasonable doubt in court",
+      "The act of reducing the value of something due to damage"
+    ],
+    "correct_answer": 1
   }
 ]

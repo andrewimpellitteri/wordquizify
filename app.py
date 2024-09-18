@@ -1,9 +1,14 @@
-from flask import Flask, render_template_string, request, jsonify
+from flask import Flask, render_template_string, request, render_template
 import json
 import random
 import ast
+import os
+from werkzeug.utils import secure_filename
+
 
 app = Flask(__name__)
+
+app.config['TEMPLATES_AUTO_RELOAD'] = True
 
 # Load the quiz data
 with open("all_quiz_data.json", "r") as f:
@@ -11,35 +16,14 @@ with open("all_quiz_data.json", "r") as f:
 
 @app.route('/')
 def index():
-    return render_template_string('''
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Vocabulary Quiz</title>
-        <script src="https://unpkg.com/htmx.org@1.9.6"></script>
-        <script src="https://cdn.tailwindcss.com"></script>
-    </head>
-    <body class="bg-gray-100 p-8">
-        <div class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl p-6">
-            <h1 class="text-2xl font-bold mb-4">Vocabulary Quiz</h1>
-            <div id="quiz-container"
-                 hx-get="/get-question"
-                 hx-trigger="load"
-                 hx-swap="innerHTML">
-                Loading question...
-            </div>
-        </div>
-    </body>
-    </html>
-    ''')
+    return render_template("index.html")
 
-@app.route('/get-question')
+@app.route("/get-question")
 def get_question():
     question = random.choice(all_quiz_data)
-    return render_template_string('''
-    <div>
+    return render_template_string(
+        """
+    <div class="p-4">
         <h2 class="text-xl font-semibold mb-2">{{ question['word'] }}</h2>
         <p class="mb-4">{{ question['question'] }}</p>
         <form hx-post="/check-answer" hx-swap="outerHTML">
@@ -51,35 +35,42 @@ def get_question():
             {% endfor %}
             <input type="hidden" name="correct_answer" value="{{ question['correct_answer'] }}">
             <input type="hidden" name="choices" value="{{ question['choices'] }}">
-            <button type="submit" class="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded dark:bg-blue-600 dark:hover:bg-blue-400">
                 Submit Answer
             </button>
         </form>
     </div>
-    ''', question=question, enumerate=enumerate)
+    """,
+        question=question,
+        enumerate=enumerate,
+    )
 
-@app.route('/check-answer', methods=['POST'])
+
+@app.route("/check-answer", methods=["POST"])
 def check_answer():
-    user_answer = int(request.form['answer'])
-    correct_answer_index = int(request.form['correct_answer'])
-    choices_str = request.form['choices']  # Get the choices string
+    user_answer = int(request.form["answer"])
+    correct_answer_index = int(request.form["correct_answer"])
+    choices_str = request.form["choices"]
 
-    # Manually format the choices string to a proper list
     try:
         choices = ast.literal_eval(choices_str)
     except (ValueError, SyntaxError) as e:
         return f"Error parsing choices: {e}", 400
 
-    # Ensure choices is a list and has the correct length
     if not isinstance(choices, list) or len(choices) <= correct_answer_index:
         return "Invalid choices data", 400
 
     correct_choice = choices[correct_answer_index]
     is_correct = user_answer == correct_answer_index
-    result_message = 'Correct!' if is_correct else f'Incorrect. The correct answer was "{correct_choice}".'
+    result_message = (
+        "Correct!"
+        if is_correct
+        else f'Incorrect. The correct answer was "{correct_choice}".'
+    )
 
-    return render_template_string('''
-    <div>
+    return render_template_string(
+        """
+    <div class="p-4">
         <h2 class="text-xl font-semibold mb-2">Result</h2>
         <p class="{{ 'text-green-600' if is_correct else 'text-red-600' }}">
             {{ result_message }}
@@ -90,7 +81,60 @@ def check_answer():
             Next Question
         </button>
     </div>
-    ''', is_correct=is_correct, result_message=result_message)
+    """,
+        is_correct=is_correct,
+        result_message=result_message,
+    )
 
-if __name__ == '__main__':
+UPLOAD_FOLDER = 'uploads'
+
+if not os.path.exists(UPLOAD_FOLDER):
+    os.makedirs(UPLOAD_FOLDER)
+
+ALLOWED_EXTENSIONS = {'txt', 'csv'}
+
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+
+def allowed_file(filename):
+    return '.' in filename and \
+           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
+@app.route('/upload', methods=['POST'])
+def upload_file():
+    if 'file' not in request.files:
+        return 'No file part', 400
+    
+    files = request.files.getlist('file')
+    
+    if not files or files[0].filename == '':
+        return 'No selected file', 400
+    
+    successful_uploads = []
+    for file in files:
+        if file and allowed_file(file.filename):
+            filename = secure_filename(file.filename)
+            file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+            file.save(file_path)
+            successful_uploads.append(filename)
+    
+    if successful_uploads:
+        print(f"item uploaded {app.config['UPLOAD_FOLDER']}")
+        return f"Successfully uploaded: {', '.join(successful_uploads)}", 200
+    else:
+        return 'No valid files were uploaded', 400
+
+@app.route('/hfsearch', methods=['POST'])
+def hfsearch():
+    repo = request.form.get('repo')
+    filename = request.form.get('filename')
+    
+    # Process the input values here
+    # For now, we'll just print them
+    print(f"Repo: {repo}")
+    print(f"Filename: {filename}")
+
+
+
+
+if __name__ == "__main__":
     app.run(debug=True)

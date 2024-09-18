@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vocabulary Quiz</title>
+    <!-- Include Franken UI (ShadCN alternative) -->
+    <link rel="stylesheet" href="https://unpkg.com/franken-ui@1.0.0/dist/css/zinc.min.css" />
+    <!-- TailwindCSS (loaded but styles should be overridden by Franken UI) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/htmx.org@1.9.6"></script>
+    <style>
+        /* Custom styles for light/dark mode */
+        :root {
+            --background: 0 0% 100%;
+            --foreground: 240 10% 3.9%;
+            --card: 0 0% 100%;
+            --card-foreground: 240 10% 3.9%;
+        }
+
+        .dark {
+            --background: 240 10% 3.9%;
+            --foreground: 0 0% 98%;
+            --card: 240 10% 3.9%;
+            --card-foreground: 0 0% 98%;
+        }
+
+        body {
+            background-color: hsl(var(--background));
+            color: hsl(var(--foreground));
+            font-family: 'Inter', sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+            margin: 0;
+        }
+        .card {
+              background-color: hsl(var(--card));
+              color: hsl(var(--card-foreground));
+              padding: 16px;
+              border-radius: 8px;
+              box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+              transition: background-color 0.3s, color 0.3s;
+              margin-bottom: 10px;
+          }
+
+          .dark .card {
+              background-color: hsl(var(--card));
+              color: hsl(var(--card-foreground));
+          }
+
+        .btn {
+            display: inline-block;
+            padding: 8px 16px;
+            background-color: hsl(200, 100%, 50%);
+            color: white;
+            border-radius: 5px;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .btn:hover {
+            background-color: hsl(200, 100%, 40%);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .title {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        .feedback {
+            font-size: 1rem;
+            padding-top: 10px;
+        }
+
+                /* New styles for tabs and search bar */
+                .tabs {
+            display: flex;
+            border-bottom: 1px solid hsl(var(--border));
+            margin-bottom: 20px;
+        }
+
+        .tab {
+            padding: 5px 10px;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+        }
+
+        .tab.active {
+            border-bottom-color: hsl(var(--primary));
+        }
+
+
+        .search-bar {
+            display: block; /* Change to block to avoid horizontal squishing */
+            margin-bottom: 20px;
+        }
+
+        .search-input {
+            width: 100%; /* Make sure input fields take full width */
+            padding: 8px;
+            border: 1px solid hsl(var(--border));
+            background-color: hsl(var(--input));
+            color: hsl(var(--foreground));
+            border-radius: 4px;
+            transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+            margin-bottom: 16px; /* Add margin between input fields */
+        }
+
+        .search-button {
+            padding: 8px 16px;
+            background-color: hsl(var(--primary));
+            color: hsl(var(--primary-foreground));
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+            display: block; /* Ensure the button is on its own line */
+            width: 100%; /* Ensure button is full width */
+            margin-top: 16px;
+        }
+
+        .search-button:hover {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="title">wordquizify</h1>
+            <button class="uk-icon-button uk-icon-button-outline" id="theme-toggle">
+              <svg
+                id="theme-toggle-light-icon"
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-sun dark:hidden"
+              >
+                <circle cx="12" cy="12" r="4"></circle>
+                <path d="M12 2v2"></path>
+                <path d="M12 20v2"></path>
+                <path d="m4.93 4.93 1.41 1.41"></path>
+                <path d="m17.66 17.66 1.41 1.41"></path>
+                <path d="M2 12h2"></path>
+                <path d="M20 12h2"></path>
+                <path d="m6.34 17.66-1.41 1.41"></path>
+                <path d="m19.07 4.93-1.41 1.41"></path>
+              </svg>
+              <svg
+                id="theme-toggle-dark-icon"
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-moon hidden dark:block"
+              >
+                <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+              </svg>
+            </button>
+            
+        </div>
+
+          <!-- New tabs section -->
+          <div class="tabs">
+            <div class="tab active" onclick="switchTab('quiz')">Quiz</div>
+            <div class="tab" onclick="switchTab('search')">Create</div>
+           </div>
+
+           <div id="search-container" style="display: none;">
+            <div class="card w-full ml-0 mr-auto overflow-hidden shadow-lg transition-all duration-300 hover:shadow-xl bg-white dark:bg-gray-800">
+              <div class="p-8">
+                <form action="{{ url_for('hfsearch') }}" method="POST">
+                  <div class="search-bar mb-6">
+                    <!-- Repo Input -->
+                    <div class="mb-4">
+                      <input type="text" 
+                             name="repo"
+                             class="search-input w-full block px-4 py-2 mb-4 border border-gray-300 dark:border-gray-600 rounded-lg text-gray-700 dark:text-gray-300 dark:bg-gray-700" 
+                             placeholder="Enter a huggingface repo (e.g. QuantFactory/Phi-3.5-mini-instruct-GGUF)">
+                    </div>
+                  
+                    <!-- Filename Input -->
+                    <div class="mb-4">
+                      <input type="text" 
+                             name="filename"
+                             class="search-input w-full block px-4 py-2 mb-4 border border-gray-300 dark:border-gray-600 rounded-lg text-gray-700 dark:text-gray-300 dark:bg-gray-700" 
+                             placeholder="Enter a filename (e.g. Phi-3.5-mini-instruct.Q5_K_M.gguf)">
+                    </div>
+                  </div>
+                </form>
+                 
+                <!-- Upload Section and Validation Checkbox -->
+                <div class="flex flex-wrap mt-8">
+                  <!-- Upload Section -->
+                  <div class="w-full md:w-1/2 pr-4">
+                    <form hx-post="/upload" hx-encoding="multipart/form-data" hx-target="#upload-status">
+                      <div class="flex flex-col items-center justify-center space-y-6 text-center">
+                        <div class="relative">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-16 h-16 text-blue-500 dark:text-blue-400 relative z-10">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="17 8 12 3 7 8"></polyline>
+                            <line x1="12" y1="3" x2="12" y2="15"></line>
+                          </svg>
+                        </div>
+                        <div class="space-y-2">
+                          <h3 class="text-lg font-semibold text-gray-700 dark:text-gray-200">Upload custom txt or csv file</h3>
+                          <p class="text-sm text-gray-500 dark:text-gray-400">Drag and drop your files here or click to browse</p>
+                        </div>
+                        <div class="w-full max-w-xs p-4 border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-lg transition-colors duration-300 hover:border-blue-500 dark:hover:border-blue-400">
+                          <label class="btn relative w-full bg-transparent hover:bg-blue-50 dark:hover:bg-blue-900 text-blue-600 dark:text-blue-400 border-blue-500 dark:border-blue-400 transition-colors duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 mr-2 inline-block">
+                              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                              <polyline points="14 2 14 8 20 8"></polyline>
+                              <line x1="12" y1="18" x2="12" y2="12"></line>
+                              <line x1="9" y1="15" x2="15" y2="15"></line>
+                            </svg>
+                            <span>Select Files</span>
+                            <input type="file" name="file" multiple class="absolute inset-0 w-full h-full opacity-0 cursor-pointer" />
+                          </label>
+                        </div>
+                      </div>
+                      <button type="submit" class="mt-4 btn w-full bg-blue-500 hover:bg-blue-600 text-white dark:bg-blue-600 dark:hover:bg-blue-400">Upload</button>
+                    </form>
+                    <div id="upload-status" class="mt-6 text-sm text-center text-gray-600 dark:text-gray-400"></div>
+                  </div>
+                  
+                  <!-- Validation Checkbox -->
+                  <div class="w-full md:w-1/2 pl-4 flex items-center">
+                    <div class="uk-grid uk-grid-small uk-margin uk-child-width-auto">
+                      <label class="flex items-center space-x-2">
+                        <input class="uk-checkbox" type="checkbox" checked />
+                        <span class="text-gray-700 dark:text-gray-300">Validation?</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+          
+                <!-- Generate Questions Button -->
+                <div class="mt-6">
+                  <button class="w-full block bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-lg dark:bg-blue-600 dark:hover:bg-blue-400">
+                    Generate Questions
+                  </button>
+                </div>
+          
+              </div>
+            </div>
+          </div>
+          
+        <div id="quiz-content">
+          <div class="card" id="quiz-container" hx-get="/get-question" hx-trigger="load" hx-swap="innerHTML">
+            Loading question...
+          </div>
+
+          <div class="card" id="feedback-container">
+              <h2 class="text-xl font-semibold">Feedback</h2>
+              <p class="feedback">Answer results and feedback will appear here after you submit.</p>
+          </div>
+        </div>
+    </div>
+
+    <script>
+        if (localStorage.getItem("color-theme") === "dark" || (!("color-theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+            document.documentElement.classList.add("dark");
+        } else {
+            document.documentElement.classList.remove("dark");
+        }
+
+        const themeToggleBtn = document.getElementById("theme-toggle");
+
+        themeToggleBtn?.addEventListener("click", function () {
+            if (localStorage.getItem("color-theme")) {
+                if (localStorage.getItem("color-theme") === "light") {
+                    document.documentElement.classList.add("dark");
+                    localStorage.setItem("color-theme", "dark");
+                } else {
+                    document.documentElement.classList.remove("dark");
+                    localStorage.setItem("color-theme", "light");
+                }
+            } else {
+                if (document.documentElement.classList.contains("dark")) {
+                    document.documentElement.classList.remove("dark");
+                    localStorage.setItem("color-theme", "light");
+                } else {
+                    document.documentElement.classList.add("dark");
+                    localStorage.setItem("color-theme", "dark");
+                }
+            }
+        });
+
+        function switchTab(tabName) {
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            event.target.classList.add('active');
+
+            const quizContent = document.getElementById('quiz-content');
+            const searchContainer = document.getElementById('search-container');
+
+            if (tabName === 'quiz') {
+                quizContent.style.display = 'block';
+                searchContainer.style.display = 'none';
+            } else if (tabName === 'search') {
+                quizContent.style.display = 'none';
+                searchContainer.style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>
