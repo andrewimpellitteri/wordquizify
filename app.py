@@ -3,8 +3,6 @@ import json
 import random
 import ast
 import os
-from werkzeug.utils import secure_filename
-
 
 app = Flask(__name__)
 
@@ -131,24 +129,15 @@ def upload_file():
     if 'file' not in request.files:
         return 'No file part', 400
     
-    files = request.files.getlist('file')
+    file = request.file.getlist('file')
     
-    if not files or files[0].filename == '':
+    if not file or file[0].filename == '':
         return 'No selected file', 400
     
-    successful_uploads = []
-    for file in files:
-        if file and allowed_file(file.filename):
-            filename = secure_filename(file.filename)
-            file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
-            file.save(file_path)
-            successful_uploads.append(filename)
-    
-    if successful_uploads:
-        print(f"item uploaded {app.config['UPLOAD_FOLDER']}")
-        return f"Successfully uploaded: {', '.join(successful_uploads)}", 200
+    if file and allowed_file(file):
+        return f"Successfully picked file: {file}", 200
     else:
-        return 'No valid files were uploaded', 400
+        return 'No valid files were picked', 400
 
 @app.route('/hfsearch', methods=['POST'])
 def hfsearch():

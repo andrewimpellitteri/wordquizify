@@ -11,6 +11,8 @@ from llama_cpp import LogitsProcessorList
 import json
 import random
 
+def load_word_list(word_list):
+    pass
 
 # Function to save quiz questions to a JSON file
 def save_to_json_file(filename: str, data: List[dict]):
@@ -28,7 +30,10 @@ def load_from_json_file(filename: str) -> List[dict]:
 
 
 # Load the Llama model using from_pretrained method
-def load_model(repo_id="QuantFactory/Phi-3.5-mini-instruct-GGUF", filename="Phi-3.5-mini-instruct.Q5_K_M.gguf"):
+def load_model(
+    repo_id="QuantFactory/Phi-3.5-mini-instruct-GGUF",
+    filename="Phi-3.5-mini-instruct.Q5_K_M.gguf",
+):
     llm = Llama.from_pretrained(
         repo_id=repo_id,
         filename=filename,
@@ -36,7 +41,6 @@ def load_model(repo_id="QuantFactory/Phi-3.5-mini-instruct-GGUF", filename="Phi-
         n_gpu_layers=-1,
     )
     return llm
-
 
 
 # Define the Pydantic schema for a quiz question
@@ -118,25 +122,29 @@ def generate_with_varied_params(
     return output["choices"][0]["text"]
 
 
-def validate_question(quiz_question: dict, llm: Llama, tokenizer_data, schema_enforcer_validator) -> bool:
-    word = quiz_question['word']
-    question_text = quiz_question['question']
-    choices = quiz_question['choices']
+def validate_question(
+    quiz_question: dict, llm: Llama, tokenizer_data, schema_enforcer_validator
+) -> bool:
+    word = quiz_question["word"]
+    question_text = quiz_question["question"]
+    choices = quiz_question["choices"]
     print(f"choices {choices}")
-    correct_answer_index = quiz_question['correct_answer']
-    
+    correct_answer_index = quiz_question["correct_answer"]
+
     if not isinstance(choices, list) or len(choices) != 4:
         print(f"Invalid choices for word '{word}': {choices}")
         return False
-    
+
     correct_answer = choices[correct_answer_index]
-    
+
     prompt = get_prompt_validator(word, question_text, correct_answer)
-    
-    result = llamacpp_with_schema_enforcement(prompt, llm, tokenizer_data, schema_enforcer_validator)
+
+    result = llamacpp_with_schema_enforcement(
+        prompt, llm, tokenizer_data, schema_enforcer_validator
+    )
 
     print(result)
-    
+
     try:
         validation_result = ValidationResult.parse_raw(result)
         return validation_result.is_correct
@@ -149,9 +157,17 @@ def validate_question(quiz_question: dict, llm: Llama, tokenizer_data, schema_en
 
 
 # Main execution
-def main():
-    with open("combined.csv", "r") as f:
-        words = f.read().split("\n")
+def create_questions(repo_id, filename, word_list=None):
+
+    if word_list is None:
+
+        with open("combined.csv", "r") as f:
+            words = f.read().split("\n")
+
+    else:
+        word_list = load_word_list(word_list)
+
+
     # Load the model
     llm = load_model()
 
@@ -190,7 +206,9 @@ def main():
 
                 print(quiz_question)
 
-                if validate_question(quiz_question, llm, tokenizer_data, schema_enforcer_validator):
+                if validate_question(
+                    quiz_question, llm, tokenizer_data, schema_enforcer_validator
+                ):
                     all_questions.append(quiz_question)
                     save_to_json_file(json_file, all_questions)
                     valid_question = True
@@ -213,7 +231,3 @@ def main():
             print(
                 f"Failed to generate a valid question for '{word}' after {max_attempts} attempts. Moving to next word."
             )
-
-
-if __name__ == "__main__":
-    main()

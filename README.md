@@ -19,7 +19,6 @@ A dynamic AI vocabulary quiz app built with Flask, HTMX and llama.cpp.
    git clone https://github.com/andrewimpellitteri/wordquizify.git
    cd vocabulary-quiz-app
    pip install -r requirements.txt
-   flask run
    ```
 
 2. Run it and view on `localhost:5000`:
