@@ -11,8 +11,14 @@ from llama_cpp import LogitsProcessorList
 import json
 import random
 
-def load_word_list(word_list):
-    pass
+def load_word_list(word_list_fp):
+    words = []
+    with open(word_list_fp, 'r') as file:
+        for line in file:
+            word = line.strip()
+            if word:  # Ignore empty lines
+                words.append(word)
+    return words
 
 # Function to save quiz questions to a JSON file
 def save_to_json_file(filename: str, data: List[dict]):
@@ -156,17 +162,12 @@ def validate_question(
         return False
 
 
-# Main execution
-def create_questions(repo_id, filename, word_list=None):
-
+def create_questions(repo_id, filename, word_list=None, validate=True, progress_callback=None):
     if word_list is None:
-
         with open("combined.csv", "r") as f:
             words = f.read().split("\n")
-
     else:
-        word_list = load_word_list(word_list)
-
+        words = word_list
 
     # Load the model
     llm = load_model()
@@ -183,11 +184,10 @@ def create_questions(repo_id, filename, word_list=None):
 
     # Load existing questions
     all_questions = load_from_json_file(json_file)
-    # all_questions = []
 
     done_words = [q["word"] for q in all_questions]
 
-    for word in words:
+    for i, word in enumerate(words):
         if word in done_words:
             continue
 
@@ -204,22 +204,25 @@ def create_questions(repo_id, filename, word_list=None):
                 )
                 quiz_question = json.loads(result)
 
-                print(quiz_question)
-
-                if validate_question(
-                    quiz_question, llm, tokenizer_data, schema_enforcer_validator
-                ):
+                if validate:
+                    if validate_question(
+                        quiz_question, llm, tokenizer_data, schema_enforcer_validator
+                    ):
+                        all_questions.append(quiz_question)
+                        save_to_json_file(json_file, all_questions)
+                        valid_question = True
+                        if progress_callback:
+                            yield from progress_callback(i, quiz_question)
+                    else:
+                        print(
+                            f"Question validation failed for '{word}'. Attempt {attempt + 1}/{max_attempts}. Regenerating..."
+                        )
+                else:
                     all_questions.append(quiz_question)
                     save_to_json_file(json_file, all_questions)
                     valid_question = True
-                    print(
-                        f"Generated and validated Quiz Question for '{word}' on attempt {attempt + 1}:"
-                    )
-                    print(json.dumps(quiz_question, indent=2))
-                else:
-                    print(
-                        f"Question validation failed for '{word}'. Attempt {attempt + 1}/{max_attempts}. Regenerating..."
-                    )
+                    if progress_callback:
+                        yield from progress_callback(i, quiz_question)
             except json.JSONDecodeError:
                 print(
                     f"Failed to parse JSON result for '{word}'. Attempt {attempt + 1}/{max_attempts}. Regenerating..."

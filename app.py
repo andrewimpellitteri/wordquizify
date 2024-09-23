@@ -1,8 +1,9 @@
-from flask import Flask, render_template_string, request, render_template, session
+from flask import Flask, render_template_string, request, render_template, session, Response
 import json
 import random
 import ast
 import os
+from create_questions import create_questions, load_word_list
 
 app = Flask(__name__)
 
@@ -126,37 +127,43 @@ def allowed_file(filename):
 
 @app.route('/upload', methods=['POST'])
 def upload_file():
-    if 'file' not in request.files:
-        return 'No file part', 400
+    if 'filepath' not in request.form:
+        return 'No filepath provided', 400
     
-    file = request.file.getlist('file')
+    filepath = request.form['filepath']
     
-    if not file or file[0].filename == '':
-        return 'No selected file', 400
+    if not filepath:
+        return 'No filepath entered', 400
     
-    if file and allowed_file(file):
-        return f"Successfully picked file: {file}", 200
+    if os.path.isfile(filepath) and allowed_file(filepath):
+        # Store the filepath in the session or a global variable
+        # so it can be accessed by hfsearch function
+        session['current_filepath'] = filepath
+        return f"Successfully picked file: {filepath}", 200
     else:
-        return 'No valid files were picked', 400
+        return 'Invalid filepath or file type', 400
 
 @app.route('/hfsearch', methods=['POST'])
 def hfsearch():
     repo = request.form.get('repo')
     filename = request.form.get('filename')
-    do_validation = request.form.get('validation')
+    do_validation = request.form.get('validation') == 'true'
     
-    # Process the input values here
-    # For now, we'll just print them
-    print(f"Repo: {repo}")
-    print(f"Filename: {filename}")
-    print(f"Do validation: {do_validation}")
+    word_list_filepath = session.get('current_filepath')
 
-    return render_template_string("""
-    <div>
-        generating questions...
-    </div>
-    """)
+    def generate():
+        word_list = load_word_list(word_list_filepath)
+        total_words = len(word_list)
+        
+        def progress_callback(i, question):
+            progress = int((i + 1) / total_words * 100)
+            yield f"data: {json.dumps({'progress': progress, 'question': question})}\n\n"
 
+        yield from create_questions(repo, filename, word_list, validate=do_validation, progress_callback=progress_callback)
+
+        yield f"data: {json.dumps({'progress': 100})}\n\n"
+
+    return Response(generate(), mimetype='text/event-stream')
 
 
 
